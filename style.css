@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Protest+Strike&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Dancing Script", cursive;
+    color: var(--grisClair);
+}
+
+:root{
+    /* --bleuFoncé:#2E86AB;
+    --bleuMoyen:#4ABDAC; */
+    --bleuFoncé: #ffffff;
+    --bleuMoyen: #f5f5f5;
+    /* --jaune: #FED766;
+    --jauneFoncé: #FEBE10; */
+    --jaune: #e1e1e1;
+    --jauneFoncé: #e5e5e5;
+    /* --grisClair: #E6E6EA; */
+    --grisClair: #303030;
+    --transition: all .3s ease;
+}
+
+body{
+    background-color: var(--bleuFoncé);
+    overflow-y: hidden;
+    &::-webkit-scrollbar{width:0px;}
+}
+
+#ecranDemarrage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--jauneFoncé);
+
+    & h1{font-size: 3em; font-weight: 700;}
+    & p{font-size: 2em; font-weight: 500;}
+    & button{
+        font-size: 2em;
+        border: 2px solid var(--jaune);
+        outline: none;
+        padding: 10px 30px;
+        border-radius: 20px;
+        background-color: var(--bleuFoncé);
+        transition: var(--transition);
+        &:hover{
+            border-radius: 50px;
+            scale: 1.1;
+        }
+    }
+}
+
+#gameOver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--jauneFoncé);
+
+    & section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 30px;
+        height: 100vh;
+        width: 50%;
+        & h1{font-size: 3em; font-weight: 700;}
+        & h2{font-size: 3em; font-weight: 700;}
+        & p{font-size: 2em; font-weight: 500;}
+        & ol{max-height: 50vh;overflow: scroll;padding: 10px 10%; & li{font-size: 2em;} &::-webkit-scrollbar{width: 0px;}}
+        & button{
+            font-size: 2em;
+            border: 2px solid var(--jaune);
+            outline: none;
+            padding: 10px 30px;
+            border-radius: 20px;
+            background-color: var(--bleuFoncé);
+            transition: var(--transition);
+            &:hover{
+                border-radius: 50px;
+                scale: 1.1;
+            }
+        }
+    }
+}
+
+#jeu{
+    width: calc(100vw - 40px);
+    height: 100vh;
+    padding: 0px 20px;
+
+    & #effectNumber{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        font-size: 3em;
+        opacity: 0;
+        &.active{            
+            animation: NumberMot .5s ease forwards;
+        }
+    }
+
+    & #historiqueMots{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: baseline;
+        
+        height: calc(60% - 0px);
+        width: calc(100vw - 80px);
+
+        margin-top: 20px;
+        font-size: 2em;
+        border-radius: 10px;
+        padding: 20px 20px 0px 20px;
+        box-shadow: inset 0px 5px 10px 0px #00000080;
+        overflow-y: scroll;
+        &::-webkit-scrollbar{width: 0px;}
+        }
+    & #motAleatoire{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2em;
+        font-weight: 900;
+        text-decoration: underline;
+
+        height: 10%;
+        width: calc(100vw - 40px);
+    }
+    & #inputBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        
+        height: 20%;
+        width: calc(100vw - 40px);
+
+        & #inputMot{
+            width: calc(100% - 40px);
+            min-height: 50px;
+            max-height: 100px;
+            outline: 0;
+            border: 0;
+            padding: 20px;
+            border-radius: 20px;
+            font-size: 2em;
+
+
+            box-shadow: 0px 5px 5px 0px #00000080;
+            background-color: var(--bleuMoyen);
+            transition: var(--transition);
+
+            &:hover{
+                border-radius: 50px;
+                scale: 0.95;
+            }
+            &:disabled{
+                background-color: var(--jaune);
+            }
+        }
+        & #couldown{background-color: var(--jaune); height: 10px; transition: var(--transition); border-radius: 50px;}
+    }
+    & #infoJeu{
+        height: 10%;
+        width: calc(100vw - 40px);
+
+        & #restart{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5em;
+            padding: 5px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background-color: #00000080;
+        }
+    }
+}
+
+@keyframes NumberMot {
+    0%{opacity: 0; scale: 0.01;}
+    70%{opacity: 1; scale: 2;}
+    100%{opacity: 0; scale: 2;}
+}

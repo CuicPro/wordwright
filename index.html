@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de mot aléatoire</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="module">
+        import { createNightowl } from './node_modules/@bufferhead/nightowl/dist/nightowl.js';
+
+        createNightowl({
+            defaultMode: 'dark',
+            toggleButtonMode: 'newState'
+        })
+    </script>
+    <div id="ecranDemarrage">
+        <h1>Bienvenue !</h1>
+        <p>Cliquez sur Démarrer pour commencer le jeu.</p>
+        <button onclick="demarrerJeu()">Démarrer</button>
+    </div>
+
+    <div id="gameOver" style="display: none;">
+        <section>
+            <h1>Game Over</h1>
+            <p>Nombre de mots écrits : <span id="nombreMots"></span></p>
+        </section>
+        <section>
+            <h2>Historique des mots :</h2>
+            <ol id="historiqueGameOver"></ol>
+            <button id="restart">Recommencer</button>
+        </section>
+    </div>
+    
+
+    <div id="jeu" style="display: none;">
+        <div id="effectNumber"></div>
+
+        <div id="historiqueMots"></div>
+        <div id="motAleatoire"></div>
+        <div id="inputBox">
+            <input type="text" id="inputMot" autocomplete="off">
+
+            <div id="couldown"></div>
+        </div>
+
+        <div id="infoJeu">
+            <div id="timer"></div>
+            <p id="finJeu"></p>
+            <button id="restart">🔄️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
