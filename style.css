@@ -38,8 +38,8 @@ body{
 
     background-color: var(--jauneFoncé);
 
-    & h1{font-size: 3em; font-weight: 700;}
-    & p{font-size: 2em; font-weight: 500;}
+    & h1{font-size: 3em; font-weight: 700; text-align: center; padding: 20px;}
+    & p{font-size: 2em; font-weight: 500; text-align: center; padding: 20px;}
     & button{
         font-size: 2em;
         border: 2px solid var(--jaune);
@@ -48,9 +48,21 @@ body{
         border-radius: 20px;
         background-color: var(--bleuFoncé);
         transition: var(--transition);
+        margin-bottom: 40px;
         &:hover{
             border-radius: 50px;
             scale: 1.1;
+        }
+    }
+    & .container-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        width: 90vw;
+        & button.selected{
+            color: var(--bleuFoncé);
+            background-color: var(--grisClair);
         }
     }
 }
@@ -60,11 +72,16 @@ body{
     justify-content: center;
     align-items: center;
     row-gap: 20px;
+    padding: 5vh 5vw;
 
-    width: 100vw;
-    height: 100vh;
+    width: 90vw;
+    height: 90vh;
 
     background-color: var(--jauneFoncé);
+
+    @media (max-width: 650px) {
+     flex-direction: column;
+    }
 
     & section{
         display: flex;
@@ -74,10 +91,13 @@ body{
         row-gap: 30px;
         height: 100vh;
         width: 50%;
+        @media (max-width: 650px) {
+            width: 95%;
+        }
         & h1{font-size: 3em; font-weight: 700;}
         & h2{font-size: 3em; font-weight: 700;}
         & p{font-size: 2em; font-weight: 500;}
-        & ol{max-height: 50vh;overflow: scroll;padding: 10px 10%; & li{font-size: 2em;} &::-webkit-scrollbar{width: 0px;}}
+        & ol{text-align: end; max-height: 50vh;overflow: scroll;padding: 10px 10%; & li{font-size: 2em;} &::-webkit-scrollbar{width: 0px;}}
         & button{
             font-size: 2em;
             border: 2px solid var(--jaune);
@@ -124,7 +144,7 @@ body{
         margin-top: 20px;
         font-size: 2em;
         border-radius: 10px;
-        padding: 20px 20px 0px 20px;
+        padding: 20px;
         box-shadow: inset 0px 5px 10px 0px #00000080;
         overflow-y: scroll;
         &::-webkit-scrollbar{width: 0px;}

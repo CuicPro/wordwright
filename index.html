@@ -6,10 +6,11 @@
     <title>Test de mot aléatoire</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <script type="module">
-        import { createNightowl } from './node_modules/@bufferhead/nightowl/dist/nightowl.js';
+        import { createNightowl } from 'https://cdn.jsdelivr.net/npm/@bufferhead/nightowl/dist/nightowl.js';
 
         createNightowl({
             defaultMode: 'dark',
@@ -20,12 +21,17 @@
         <h1>Bienvenue !</h1>
         <p>Cliquez sur Démarrer pour commencer le jeu.</p>
         <button onclick="demarrerJeu()">Démarrer</button>
+
+        <div class="container-btn">
+            <button id="mode_normal" class="selected">Normal</button><button id="mode_hard">difficile</button>
+        </div>
     </div>
 
     <div id="gameOver" style="display: none;">
         <section>
             <h1>Game Over</h1>
             <p>Nombre de mots écrits : <span id="nombreMots"></span></p>
+            <p>Mode : <span id="modeDeJeu"></span></p>
         </section>
         <section>
             <h2>Historique des mots :</h2>
@@ -49,7 +55,7 @@
         <div id="infoJeu">
             <div id="timer"></div>
             <p id="finJeu"></p>
-            <button id="restart">🔄️</button>
+            <button id="restart" onClick="window.location.href=window.location.href">🔄️</button>
         </div>
     </div>
 
