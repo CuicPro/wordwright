@@ -947,8 +947,8 @@ function mettreAJourHistorique() {
     });
     
     // Faire défiler jusqu'au dernier élément ajouté
-    const dernierElement = historiqueListe.lastElementChild;
-    dernierElement.scrollIntoView({ behavior: "smooth", block: "end" });
+    //const dernierElement = historiqueListe.lastElementChild;
+    //dernierElement.scrollIntoView({ behavior: "smooth", block: "end" });
   }
   
 
